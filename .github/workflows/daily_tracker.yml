@@ -2,8 +2,9 @@ name: Daily Quota Tracker
 
 on:
   schedule:
-    - cron: '0 19 * * *'    # Runs  every day at 9 PM Egypt time (may be 10 PM in summer)
-  workflow_dispatch:        # Allow manual runs
+    - cron: "0 9 * * *" # 12:00 +3 timezone -> 09:00 UTC
+    - cron: "0 21 * * *" # 00:00 +3 timezone -> 21:00 UTC
+  workflow_dispatch:
 
 jobs:
   run-tracker:
@@ -16,7 +17,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       - name: Install dependencies
         run: pip install -r requirements.txt
