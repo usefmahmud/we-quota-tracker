@@ -2,7 +2,6 @@ name: Daily Quota Tracker
 
 on:
   schedule:
-    - cron: "0 9 * * *" # 12:00 +3 timezone -> 09:00 UTC
     - cron: "0 21 * * *" # 00:00 +3 timezone -> 21:00 UTC
   workflow_dispatch:
 
